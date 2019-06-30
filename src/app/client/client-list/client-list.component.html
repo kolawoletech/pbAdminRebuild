@@ -1,0 +1,22 @@
+<p>
+  client-list works!
+
+</p>
+  <div  *ngFor="let client of clients"  [ngClass]="'sub-child-menu'" class="card col-xlg-6 col-lg-6 col-md-12 col-sm-12 col-12">
+    <div class="card-header">
+      {{client.fullName}}
+     
+    </div>
+
+    <div class="card-body">
+      
+
+    </div>
+
+    <div class="card-body">
+      <!-- <a [routerLink]="[category.key]" class="btn btn-success btn-lg  btn-block" role="button">View</a> -->
+    </div>
+
+
+  </div>
+

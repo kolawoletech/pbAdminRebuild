@@ -1,0 +1,69 @@
+<form [formGroup]="proForm" *ngIf="newPro" (ngSubmit)="signUpPro()">
+
+  <h3>Create A Pro Account</h3>
+  <p class="button is-small" (click)="toggleForm()">Already Registered?</p>
+  <hr>
+
+  <label for="fullName">Full Name</label>
+  <input type="text" class="input" formControlName="fullName" name="fullName" required>
+
+  <div *ngIf="formErrors.fullName" class="notification is-danger">
+      {{ formErrors.fullName }}
+  </div>
+
+  <label for="email">Email</label>
+  <input type="email" class="input" formControlName="email" name="email" required autocomplete="new-password">
+
+  <div *ngIf="formErrors.email" class="notification is-danger">
+      {{ formErrors.email }}
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" class="input" formControlName="password" name="password" required>
+
+
+  <div *ngIf="formErrors.password" class="notification is-danger">
+      {{ formErrors.password }}
+  </div>
+
+  <label for="expertise">Expertise</label>
+  <input type="text" class="input" formControlName="expertise" name="expertise" required>
+
+  <div *ngIf="formErrors.pexpertise" class="notification is-danger">
+      {{ formErrors.expertise}}
+  </div>
+
+  <div *ngIf="proForm.valid" class="notification is-success">Form is valid</div>
+  <button type="submit" class="button" [disabled]="!proForm.valid">Submit</button>
+
+</form>
+
+
+<form [formGroup]="proForm" *ngIf="!newPro" (ngSubmit)="login()">
+
+  <h3>Welcome Back To Your Pro Page</h3>
+  <p class="btn button is-small" (click)="toggleForm()">New Pro?</p>
+  <hr>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password">
+
+  <div *ngIf="formErrors.email" class="help is-danger">
+      {{ formErrors.email }}
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password">
+
+  <div *ngIf="formErrors.password" class="help is-danger">
+      {{ formErrors.password }}
+  </div>
+
+  <button type="submit" class="button" [disabled]="!proForm.valid">Submit</button>
+
+  <span *ngIf="proForm.valid" class="help is-success">Form Looks Valid</span>
+
+  <a *ngIf="!passReset && proForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{proForm.value.email}}?</a>
+  <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+
+</form>

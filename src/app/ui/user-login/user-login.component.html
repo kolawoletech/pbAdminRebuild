@@ -1,0 +1,30 @@
+<hr>
+
+<div *ngIf="!(auth.user | async); else alreadyLoggedIn">
+  <hr>
+
+
+  <user-form></user-form>
+  <hr>
+  <br>
+
+  <div class="login-form">
+    <button (click)="signInWithGoogle()" class="button btn-social btn-google">
+      <i class="fa fa-google fa-lg"></i> Connect Google
+    </button>
+    <button (click)="signInWithFacebook()" class="button  btn-social btn-facebook">
+      <i class="fa fa-facebook fa-lg"></i> Connect Facebook
+    </button>
+  </div>
+
+
+</div>
+
+<ng-template #alreadyLoggedIn>
+  <p class="text-success">
+    You are logged in <i class="fa fa-thumbs-up"></i>
+  </p>
+  <a class="navbar-item" routerLink="/users">
+    Head to Client Management
+  </a>
+</ng-template>
