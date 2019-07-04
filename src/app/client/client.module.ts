@@ -7,6 +7,8 @@ import { ClientLoginComponent } from './client-login/client-login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientListComponent } from './client-list/client-list.component';
+import { DropZoneDirective } from './drop-zone.directive';
+import { FileSizePipe } from './file-size.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { ClientListComponent } from './client-list/client-list.component';
     ReactiveFormsModule
   ],
   exports:[ClientFormComponent, ClientProfileComponent, ClientLoginComponent],
-  declarations: [ClientFormComponent, ClientProfileComponent, ClientLoginComponent, ClientListComponent]
+  declarations: [ClientFormComponent, ClientProfileComponent, ClientLoginComponent, ClientListComponent,  DropZoneDirective, FileSizePipe]
 })
 export class ClientModule { }
